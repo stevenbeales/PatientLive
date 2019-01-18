@@ -1,0 +1,904 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="ePs.MyClinicalStudy.Repository.Models" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityType Name="User">
+        <Key>
+          <PropertyRef Name="user_id" />
+        </Key>
+        <Property Name="user_id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="username" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="register_date" Type="Edm.DateTime" />
+        <Property Name="user_password" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="password_hint" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="first_name" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="last_name" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="email_address" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="current_position" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="company" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="location" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="custom_data_1" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="custom_data_2" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="custom_data_3" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="active_yn" Type="Edm.String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+        <Property Name="user_title" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="company_head" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="department" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="address_1" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="address_2" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="zip_code" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="city" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="state" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="country" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="business_phone_1" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="business_phone_2" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="business_fax" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="mobile_phone" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="active_until" Type="Edm.DateTime" />
+        <Property Name="therapeutic_area" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="secondary_specialty" Type="Edm.String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        <Property Name="practice_type" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="filed_1572" Type="Edm.Int32" />
+        <Property Name="primary_specialty" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="WindowsLiveID" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Gender" Type="Edm.String" MaxLength="1" FixedLength="true" Unicode="true" />
+        <Property Name="DOB" Type="Edm.DateTime" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="UserAccessLogs" Relationship="ePs.MyClinicalStudy.Repository.Models.UserAccessLog_User" ToRole="UserAccessLog_User_Source" FromRole="UserAccessLog_User_Target" />
+        <NavigationProperty Name="UserConditions" Relationship="ePs.MyClinicalStudy.Repository.Models.UserCondition_User" ToRole="UserCondition_User_Source" FromRole="UserCondition_User_Target" />
+        <NavigationProperty Name="UserMedications" Relationship="ePs.MyClinicalStudy.Repository.Models.UserMedication_User" ToRole="UserMedication_User_Source" FromRole="UserMedication_User_Target" />
+        <NavigationProperty Name="UserSearches" Relationship="ePs.MyClinicalStudy.Repository.Models.UserSearch_User" ToRole="UserSearch_User_Source" FromRole="UserSearch_User_Target" />
+        <NavigationProperty Name="UserStudies" Relationship="ePs.MyClinicalStudy.Repository.Models.UserStudy_User" ToRole="UserStudy_User_Source" FromRole="UserStudy_User_Target" />
+      </EntityType>
+      <EntityType Name="UserAccessLog">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="User_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="TileName" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Activity" Type="Edm.String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="User" Relationship="ePs.MyClinicalStudy.Repository.Models.UserAccessLog_User" ToRole="UserAccessLog_User_Target" FromRole="UserAccessLog_User_Source" />
+      </EntityType>
+      <EntityType Name="UserCondition">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="User_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ConditionId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="User" Relationship="ePs.MyClinicalStudy.Repository.Models.UserCondition_User" ToRole="UserCondition_User_Target" FromRole="UserCondition_User_Source" />
+        <NavigationProperty Name="Condition" Relationship="ePs.MyClinicalStudy.Repository.Models.UserCondition_Condition" ToRole="UserCondition_Condition_Target" FromRole="UserCondition_Condition_Source" />
+      </EntityType>
+      <EntityType Name="Condition">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="MedicationConditions" Relationship="ePs.MyClinicalStudy.Repository.Models.MedicationCondition_Condition" ToRole="MedicationCondition_Condition_Source" FromRole="MedicationCondition_Condition_Target" />
+        <NavigationProperty Name="StudyConditions" Relationship="ePs.MyClinicalStudy.Repository.Models.StudyCondition_Condition" ToRole="StudyCondition_Condition_Source" FromRole="StudyCondition_Condition_Target" />
+        <NavigationProperty Name="UserConditions" Relationship="ePs.MyClinicalStudy.Repository.Models.UserCondition_Condition" ToRole="UserCondition_Condition_Source" FromRole="UserCondition_Condition_Target" />
+      </EntityType>
+      <EntityType Name="MedicationCondition">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="MedicationId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ConditionId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="Condition" Relationship="ePs.MyClinicalStudy.Repository.Models.MedicationCondition_Condition" ToRole="MedicationCondition_Condition_Target" FromRole="MedicationCondition_Condition_Source" />
+        <NavigationProperty Name="Medication" Relationship="ePs.MyClinicalStudy.Repository.Models.MedicationCondition_Medication" ToRole="MedicationCondition_Medication_Target" FromRole="MedicationCondition_Medication_Source" />
+      </EntityType>
+      <EntityType Name="Medication">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        <Property Name="Source" Type="Edm.String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="MedicationConditions" Relationship="ePs.MyClinicalStudy.Repository.Models.MedicationCondition_Medication" ToRole="MedicationCondition_Medication_Source" FromRole="MedicationCondition_Medication_Target" />
+        <NavigationProperty Name="UserMedications" Relationship="ePs.MyClinicalStudy.Repository.Models.UserMedication_Medication" ToRole="UserMedication_Medication_Source" FromRole="UserMedication_Medication_Target" />
+      </EntityType>
+      <EntityType Name="UserMedication">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="User_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="MedicationId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="User" Relationship="ePs.MyClinicalStudy.Repository.Models.UserMedication_User" ToRole="UserMedication_User_Target" FromRole="UserMedication_User_Source" />
+        <NavigationProperty Name="Medication" Relationship="ePs.MyClinicalStudy.Repository.Models.UserMedication_Medication" ToRole="UserMedication_Medication_Target" FromRole="UserMedication_Medication_Source" />
+      </EntityType>
+      <EntityType Name="StudyCondition">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="StudyId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ConditionId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="Condition" Relationship="ePs.MyClinicalStudy.Repository.Models.StudyCondition_Condition" ToRole="StudyCondition_Condition_Target" FromRole="StudyCondition_Condition_Source" />
+        <NavigationProperty Name="Study" Relationship="ePs.MyClinicalStudy.Repository.Models.StudyCondition_Study" ToRole="StudyCondition_Study_Target" FromRole="StudyCondition_Study_Source" />
+      </EntityType>
+      <EntityType Name="Study">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="NCTID" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Title" Type="Edm.String" MaxLength="500" FixedLength="false" Unicode="true" />
+        <Property Name="Sponsor" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="Status" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityCriteriaTextblock" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityGender" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityMinAge" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityMaxAge" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityMinAgeYears" Type="Edm.Byte" Nullable="false" />
+        <Property Name="EligibilityMaxAgeYears" Type="Edm.Byte" Nullable="false" />
+        <Property Name="EligibilityHealthyVolunteersYN" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Phase" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="StudyType" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Enrollment" Type="Edm.Int32" />
+        <Property Name="StudyStartDate" Type="Edm.DateTime" />
+        <Property Name="StudyEndDate" Type="Edm.DateTime" />
+        <Property Name="VisitSchedule" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="PrimaryCondition" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="SurveyId" Type="Edm.Int32" />
+        <Property Name="Source" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="StudyConditions" Relationship="ePs.MyClinicalStudy.Repository.Models.StudyCondition_Study" ToRole="StudyCondition_Study_Source" FromRole="StudyCondition_Study_Target" />
+        <NavigationProperty Name="StudySites" Relationship="ePs.MyClinicalStudy.Repository.Models.StudySite_Study" ToRole="StudySite_Study_Source" FromRole="StudySite_Study_Target" />
+        <NavigationProperty Name="UserStudies" Relationship="ePs.MyClinicalStudy.Repository.Models.UserStudy_Study" ToRole="UserStudy_Study_Source" FromRole="UserStudy_Study_Target" />
+      </EntityType>
+      <EntityType Name="StudySite">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="StudyId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SiteId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="Site" Relationship="ePs.MyClinicalStudy.Repository.Models.StudySite_Site" ToRole="StudySite_Site_Target" FromRole="StudySite_Site_Source" />
+        <NavigationProperty Name="Study" Relationship="ePs.MyClinicalStudy.Repository.Models.StudySite_Study" ToRole="StudySite_Study_Target" FromRole="StudySite_Study_Source" />
+      </EntityType>
+      <EntityType Name="Site">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="PILastName" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="PIFirstName" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Address1" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Address2" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Address3" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="City" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="StateProvince" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="PostalCode" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Country" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Latitude" Type="Edm.Decimal" Precision="18" Scale="2" />
+        <Property Name="Longitude" Type="Edm.Decimal" Precision="18" Scale="2" />
+        <Property Name="Status" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="StudySites" Relationship="ePs.MyClinicalStudy.Repository.Models.StudySite_Site" ToRole="StudySite_Site_Source" FromRole="StudySite_Site_Target" />
+        <NavigationProperty Name="UserStudies" Relationship="ePs.MyClinicalStudy.Repository.Models.UserStudy_Site" ToRole="UserStudy_Site_Source" FromRole="UserStudy_Site_Target" />
+      </EntityType>
+      <EntityType Name="UserStudy">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="User_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="StudyId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SiteId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="User" Relationship="ePs.MyClinicalStudy.Repository.Models.UserStudy_User" ToRole="UserStudy_User_Target" FromRole="UserStudy_User_Source" />
+        <NavigationProperty Name="Study" Relationship="ePs.MyClinicalStudy.Repository.Models.UserStudy_Study" ToRole="UserStudy_Study_Target" FromRole="UserStudy_Study_Source" />
+        <NavigationProperty Name="Site" Relationship="ePs.MyClinicalStudy.Repository.Models.UserStudy_Site" ToRole="UserStudy_Site_Target" FromRole="UserStudy_Site_Source" />
+      </EntityType>
+      <EntityType Name="UserSearch">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="User_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Conditions" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="Medications" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="Age" Type="Edm.Int32" />
+        <Property Name="Gender" Type="Edm.String" MaxLength="1" FixedLength="true" Unicode="true" />
+        <Property Name="PostalCode" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Distance" Type="Edm.Int32" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="User" Relationship="ePs.MyClinicalStudy.Repository.Models.UserSearch_User" ToRole="UserSearch_User_Target" FromRole="UserSearch_User_Source" />
+      </EntityType>
+      <EntityType Name="EducationalMaterialsFAQ">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Question" Type="Edm.String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+        <Property Name="Answer" Type="Edm.String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+      </EntityType>
+      <EntityType Name="Country">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Abbreviation" Type="Edm.String" MaxLength="3" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="ISOAlpha2" Type="Edm.String" MaxLength="2" FixedLength="false" Unicode="true" />
+        <Property Name="ISOAlpha3" Type="Edm.String" MaxLength="3" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="CountryStateProvinces" Relationship="ePs.MyClinicalStudy.Repository.Models.StateProvince_Country" ToRole="StateProvince_Country_Source" FromRole="StateProvince_Country_Target" />
+      </EntityType>
+      <EntityType Name="StateProvince">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CountryId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Abbreviation" Type="Edm.String" MaxLength="5" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="Country" Relationship="ePs.MyClinicalStudy.Repository.Models.StateProvince_Country" ToRole="StateProvince_Country_Target" FromRole="StateProvince_Country_Source" />
+      </EntityType>
+      <EntityType Name="MedInfoCondition">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        <Property Name="HREF" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="Source" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="MedInfoDrugConditions" Relationship="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition_MedInfoCondition" ToRole="MedInfoDrugCondition_MedInfoCondition_Source" FromRole="MedInfoDrugCondition_MedInfoCondition_Target" />
+      </EntityType>
+      <EntityType Name="MedInfoDrugCondition">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="MedInfoDrugId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="MedInfoConditionId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="MedInfoDrug" Relationship="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition_MedInfoDrug" ToRole="MedInfoDrugCondition_MedInfoDrug_Target" FromRole="MedInfoDrugCondition_MedInfoDrug_Source" />
+        <NavigationProperty Name="MedInfoCondition" Relationship="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition_MedInfoCondition" ToRole="MedInfoDrugCondition_MedInfoCondition_Target" FromRole="MedInfoDrugCondition_MedInfoCondition_Source" />
+      </EntityType>
+      <EntityType Name="MedInfoDrug">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        <Property Name="Information" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="HREF" Type="Edm.String" MaxLength="255" FixedLength="false" Unicode="true" />
+        <Property Name="Source" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Created" Type="Edm.DateTime" />
+        <Property Name="CreatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Updated" Type="Edm.DateTime" />
+        <Property Name="UpdatedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="Deleted" Type="Edm.DateTime" />
+        <Property Name="DeletedBy" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="MedInfoDrugConditions" Relationship="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition_MedInfoDrug" ToRole="MedInfoDrugCondition_MedInfoDrug_Source" FromRole="MedInfoDrugCondition_MedInfoDrug_Target" />
+      </EntityType>
+      <EntityType Name="SearchStudy">
+        <Key>
+          <PropertyRef Name="NCTID" />
+        </Key>
+        <Property Name="NCTID" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="StudyId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" MaxLength="500" FixedLength="false" Unicode="true" />
+        <Property Name="Sponsor" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="StudyStatus" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityCriteriaTextblock" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityGender" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityMinAgeYears" Type="Edm.Byte" Nullable="false" />
+        <Property Name="EligibilityMaxAgeYears" Type="Edm.Byte" Nullable="false" />
+        <Property Name="EligibilityHealthyVolunteersYN" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Phase" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="StudyType" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Enrollment" Type="Edm.Int32" />
+        <Property Name="StudyStartDate" Type="Edm.DateTime" />
+        <Property Name="StudyEndDate" Type="Edm.DateTime" />
+        <Property Name="Conditions" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="SurveyId" Type="Edm.Int32" />
+        <Property Name="StudyPrimaryContact" Type="Edm.String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        <Property Name="StudyBackupContact" Type="Edm.String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        <Property Name="SiteName" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="PILastName" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="PIFirstName" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="Address1" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="Address2" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="Address3" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="City" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="StateProvince" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="PostalCode" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="Country" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="Latitude" Type="Edm.Decimal" Precision="18" Scale="2" />
+        <Property Name="Longitude" Type="Edm.Decimal" Precision="18" Scale="2" />
+        <Property Name="SiteStatus" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="SitePrimaryContact" Type="Edm.String" MaxLength="608" FixedLength="false" Unicode="true" />
+        <Property Name="SiteBackupContact" Type="Edm.String" MaxLength="608" FixedLength="false" Unicode="true" />
+      </EntityType>
+      <EntityType Name="vw_GetAlert">
+        <Key>
+          <PropertyRef Name="Title" />
+        </Key>
+        <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        <Property Name="UserId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="URL" Type="Edm.String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        <Property Name="AlertDate" Type="Edm.DateTime" />
+        <Property Name="IsNew" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="vw_SearchMedication">
+        <Key>
+          <PropertyRef Name="DrugName" />
+        </Key>
+        <Property Name="DrugName" Type="Edm.String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        <Property Name="ActiveIngredient" Type="Edm.String" MaxLength="250" FixedLength="false" Unicode="true" />
+        <Property Name="Sponsors" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="Information" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="HREF" Type="Edm.String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        <Property Name="Conditions" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="IsNew" Type="Edm.Int32" />
+        <Property Name="ConditionName" Type="Edm.String" MaxLength="150" FixedLength="false" Unicode="true" />
+        <Property Name="ConditionId" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="vw_SavedStudy">
+        <Key>
+          <PropertyRef Name="UserStudyId" />
+        </Key>
+        <Property Name="UserStudyId" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="UserId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" MaxLength="500" FixedLength="false" Unicode="true" />
+        <Property Name="Conditions" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityCriteriaTextblock" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityGender" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityHealthyVolunteersYN" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityMaxAgeYears" Type="Edm.Byte" Nullable="false" />
+        <Property Name="EligibilityMinAgeYears" Type="Edm.Byte" Nullable="false" />
+        <Property Name="Enrollment" Type="Edm.Int32" />
+        <Property Name="Phase" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="SiteBackupContact" Type="Edm.String" MaxLength="608" FixedLength="false" Unicode="true" />
+        <Property Name="SitePrimaryContact" Type="Edm.String" MaxLength="608" FixedLength="false" Unicode="true" />
+        <Property Name="Sponsor" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="StudyBackupContact" Type="Edm.String" MaxLength="408" FixedLength="false" Unicode="true" />
+        <Property Name="StudyEndDate" Type="Edm.DateTime" />
+        <Property Name="StudyStatus" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="StudyType" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="SurveyId" Type="Edm.Int32" />
+        <Property Name="StudyId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SiteId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="City" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+      </EntityType>
+      <EntityType Name="USP_SearchStudiesResult">
+        <Key>
+          <PropertyRef Name="RN" />
+        </Key>
+        <Property Name="RN" Type="Edm.Int64" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="StudyId" Type="Edm.Int32" />
+        <Property Name="SiteId" Type="Edm.Int32" />
+        <Property Name="NCTID" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Title" Type="Edm.String" MaxLength="500" FixedLength="false" Unicode="true" />
+        <Property Name="Sponsor" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="StudyStatus" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityCriteriaTextblock" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityGender" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EligibilityMinAgeYears" Type="Edm.Byte" />
+        <Property Name="EligibilityMaxAgeYears" Type="Edm.Byte" />
+        <Property Name="EligibilityHealthyVolunteersYN" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Phase" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="StudyType" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Enrollment" Type="Edm.Int32" />
+        <Property Name="StudyStartDate" Type="Edm.DateTime" />
+        <Property Name="StudyEndDate" Type="Edm.DateTime" />
+        <Property Name="Conditions" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="SurveyId" Type="Edm.Int32" />
+        <Property Name="Distance" Type="Edm.Int32" />
+        <Property Name="StudyPrimaryContact" Type="Edm.String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        <Property Name="StudyBackupContact" Type="Edm.String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        <Property Name="SitePrimaryContact" Type="Edm.String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        <Property Name="SiteBackupContact" Type="Edm.String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        <Property Name="City" Type="Edm.String" MaxLength="200" FixedLength="false" Unicode="true" />
+        <Property Name="IsNew" Type="Edm.Int32" />
+        <Property Name="TotalItems" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="USP_SearchMedicationsResult">
+        <Key>
+          <PropertyRef Name="DrugName" />
+        </Key>
+        <Property Name="DrugName" Type="Edm.String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        <Property Name="Information" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="HREF" Type="Edm.String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        <Property Name="Conditions" Type="Edm.String" MaxLength="100" FixedLength="false" Unicode="true" />
+        <Property Name="IsNew" Type="Edm.Int32" />
+        <Property Name="TotalItems" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="USP_GetNewItemCountsResult">
+        <Key>
+          <PropertyRef Name="Item" />
+        </Key>
+        <Property Name="Item" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Count" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="USP_GetAlertsResult">
+        <Key>
+          <PropertyRef Name="Title" />
+        </Key>
+        <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        <Property Name="Description" Type="Edm.String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        <Property Name="URL" Type="Edm.String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        <Property Name="AlertDate" Type="Edm.DateTime" />
+        <Property Name="IsNew" Type="Edm.Int32" />
+      </EntityType>
+      <Association Name="UserAccessLog_User">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.User" Role="UserAccessLog_User_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserAccessLog" Role="UserAccessLog_User_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserAccessLog_User_Target">
+            <PropertyRef Name="user_id" />
+          </Principal>
+          <Dependent Role="UserAccessLog_User_Source">
+            <PropertyRef Name="User_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="UserCondition_User">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.User" Role="UserCondition_User_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserCondition" Role="UserCondition_User_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserCondition_User_Target">
+            <PropertyRef Name="user_id" />
+          </Principal>
+          <Dependent Role="UserCondition_User_Source">
+            <PropertyRef Name="User_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="UserMedication_User">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.User" Role="UserMedication_User_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserMedication" Role="UserMedication_User_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserMedication_User_Target">
+            <PropertyRef Name="user_id" />
+          </Principal>
+          <Dependent Role="UserMedication_User_Source">
+            <PropertyRef Name="User_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="UserSearch_User">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.User" Role="UserSearch_User_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserSearch" Role="UserSearch_User_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserSearch_User_Target">
+            <PropertyRef Name="user_id" />
+          </Principal>
+          <Dependent Role="UserSearch_User_Source">
+            <PropertyRef Name="User_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="UserStudy_User">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.User" Role="UserStudy_User_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserStudy" Role="UserStudy_User_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserStudy_User_Target">
+            <PropertyRef Name="user_id" />
+          </Principal>
+          <Dependent Role="UserStudy_User_Source">
+            <PropertyRef Name="User_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="UserCondition_Condition">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Condition" Role="UserCondition_Condition_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserCondition" Role="UserCondition_Condition_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserCondition_Condition_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="UserCondition_Condition_Source">
+            <PropertyRef Name="ConditionId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="MedicationCondition_Condition">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Condition" Role="MedicationCondition_Condition_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.MedicationCondition" Role="MedicationCondition_Condition_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="MedicationCondition_Condition_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="MedicationCondition_Condition_Source">
+            <PropertyRef Name="ConditionId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="StudyCondition_Condition">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Condition" Role="StudyCondition_Condition_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.StudyCondition" Role="StudyCondition_Condition_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="StudyCondition_Condition_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="StudyCondition_Condition_Source">
+            <PropertyRef Name="ConditionId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="MedicationCondition_Medication">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Medication" Role="MedicationCondition_Medication_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.MedicationCondition" Role="MedicationCondition_Medication_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="MedicationCondition_Medication_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="MedicationCondition_Medication_Source">
+            <PropertyRef Name="MedicationId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="UserMedication_Medication">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Medication" Role="UserMedication_Medication_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserMedication" Role="UserMedication_Medication_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserMedication_Medication_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="UserMedication_Medication_Source">
+            <PropertyRef Name="MedicationId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="StudyCondition_Study">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Study" Role="StudyCondition_Study_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.StudyCondition" Role="StudyCondition_Study_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="StudyCondition_Study_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="StudyCondition_Study_Source">
+            <PropertyRef Name="StudyId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="StudySite_Study">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Study" Role="StudySite_Study_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.StudySite" Role="StudySite_Study_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="StudySite_Study_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="StudySite_Study_Source">
+            <PropertyRef Name="StudyId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="UserStudy_Study">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Study" Role="UserStudy_Study_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserStudy" Role="UserStudy_Study_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserStudy_Study_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="UserStudy_Study_Source">
+            <PropertyRef Name="StudyId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="StudySite_Site">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Site" Role="StudySite_Site_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.StudySite" Role="StudySite_Site_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="StudySite_Site_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="StudySite_Site_Source">
+            <PropertyRef Name="SiteId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="UserStudy_Site">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Site" Role="UserStudy_Site_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.UserStudy" Role="UserStudy_Site_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="UserStudy_Site_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="UserStudy_Site_Source">
+            <PropertyRef Name="SiteId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="StateProvince_Country">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.Country" Role="StateProvince_Country_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.StateProvince" Role="StateProvince_Country_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="StateProvince_Country_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="StateProvince_Country_Source">
+            <PropertyRef Name="CountryId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="MedInfoDrugCondition_MedInfoCondition">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.MedInfoCondition" Role="MedInfoDrugCondition_MedInfoCondition_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition" Role="MedInfoDrugCondition_MedInfoCondition_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="MedInfoDrugCondition_MedInfoCondition_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="MedInfoDrugCondition_MedInfoCondition_Source">
+            <PropertyRef Name="MedInfoConditionId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="MedInfoDrugCondition_MedInfoDrug">
+        <End Type="ePs.MyClinicalStudy.Repository.Models.MedInfoDrug" Role="MedInfoDrugCondition_MedInfoDrug_Target" Multiplicity="1">
+          <OnDelete Action="Cascade" />
+        </End>
+        <End Type="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition" Role="MedInfoDrugCondition_MedInfoDrug_Source" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="MedInfoDrugCondition_MedInfoDrug_Target">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="MedInfoDrugCondition_MedInfoDrug_Source">
+            <PropertyRef Name="MedInfoDrugId" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <EntityContainer Name="MyClinicalStudyContext" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Users" EntityType="ePs.MyClinicalStudy.Repository.Models.User" />
+        <EntitySet Name="UserAccessLogs" EntityType="ePs.MyClinicalStudy.Repository.Models.UserAccessLog" />
+        <EntitySet Name="UserConditions" EntityType="ePs.MyClinicalStudy.Repository.Models.UserCondition" />
+        <EntitySet Name="Conditions" EntityType="ePs.MyClinicalStudy.Repository.Models.Condition" />
+        <EntitySet Name="MedicationConditions" EntityType="ePs.MyClinicalStudy.Repository.Models.MedicationCondition" />
+        <EntitySet Name="Medications" EntityType="ePs.MyClinicalStudy.Repository.Models.Medication" />
+        <EntitySet Name="UserMedications" EntityType="ePs.MyClinicalStudy.Repository.Models.UserMedication" />
+        <EntitySet Name="StudyConditions" EntityType="ePs.MyClinicalStudy.Repository.Models.StudyCondition" />
+        <EntitySet Name="Studies" EntityType="ePs.MyClinicalStudy.Repository.Models.Study" />
+        <EntitySet Name="StudySites" EntityType="ePs.MyClinicalStudy.Repository.Models.StudySite" />
+        <EntitySet Name="Sites" EntityType="ePs.MyClinicalStudy.Repository.Models.Site" />
+        <EntitySet Name="UserStudies" EntityType="ePs.MyClinicalStudy.Repository.Models.UserStudy" />
+        <EntitySet Name="UserSearches" EntityType="ePs.MyClinicalStudy.Repository.Models.UserSearch" />
+        <EntitySet Name="EducationalMaterialsFAQs" EntityType="ePs.MyClinicalStudy.Repository.Models.EducationalMaterialsFAQ" />
+        <EntitySet Name="Countries" EntityType="ePs.MyClinicalStudy.Repository.Models.Country" />
+        <EntitySet Name="StateProvinces" EntityType="ePs.MyClinicalStudy.Repository.Models.StateProvince" />
+        <EntitySet Name="MedInfoConditions" EntityType="ePs.MyClinicalStudy.Repository.Models.MedInfoCondition" />
+        <EntitySet Name="MedInfoDrugConditions" EntityType="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition" />
+        <EntitySet Name="MedInfoDrugs" EntityType="ePs.MyClinicalStudy.Repository.Models.MedInfoDrug" />
+        <EntitySet Name="SearchStudies" EntityType="ePs.MyClinicalStudy.Repository.Models.SearchStudy" />
+        <EntitySet Name="vw_GetAlerts" EntityType="ePs.MyClinicalStudy.Repository.Models.vw_GetAlert" />
+        <EntitySet Name="vw_SearchMedications" EntityType="ePs.MyClinicalStudy.Repository.Models.vw_SearchMedication" />
+        <EntitySet Name="vw_SavedStudies" EntityType="ePs.MyClinicalStudy.Repository.Models.vw_SavedStudy" />
+        <EntitySet Name="USP_SearchStudiesResults" EntityType="ePs.MyClinicalStudy.Repository.Models.USP_SearchStudiesResult" />
+        <EntitySet Name="USP_SearchMedicationsResults" EntityType="ePs.MyClinicalStudy.Repository.Models.USP_SearchMedicationsResult" />
+        <EntitySet Name="USP_GetNewItemCountsResults" EntityType="ePs.MyClinicalStudy.Repository.Models.USP_GetNewItemCountsResult" />
+        <EntitySet Name="USP_GetAlertsResults" EntityType="ePs.MyClinicalStudy.Repository.Models.USP_GetAlertsResult" />
+        <FunctionImport Name="GetStudies" ReturnType="Collection(ePs.MyClinicalStudy.Repository.Models.USP_SearchStudiesResult)" EntitySet="USP_SearchStudiesResults" m:HttpMethod="GET">
+          <Parameter Name="dob" Type="Edm.String" />
+          <Parameter Name="age" Type="Edm.Int32" Nullable="false" />
+          <Parameter Name="gender" Type="Edm.String" />
+          <Parameter Name="conditions" Type="Edm.String" />
+          <Parameter Name="postalCode" Type="Edm.String" />
+          <Parameter Name="country" Type="Edm.String" />
+          <Parameter Name="distance" Type="Edm.Int32" />
+          <Parameter Name="latitude" Type="Edm.Decimal" />
+          <Parameter Name="longitude" Type="Edm.Decimal" />
+          <Parameter Name="skip" Type="Edm.Int32" />
+          <Parameter Name="take" Type="Edm.Int32" />
+          <Parameter Name="userId" Type="Edm.Int32" />
+        </FunctionImport>
+        <FunctionImport Name="GetMedications" ReturnType="Collection(ePs.MyClinicalStudy.Repository.Models.USP_SearchMedicationsResult)" EntitySet="USP_SearchMedicationsResults" m:HttpMethod="GET">
+          <Parameter Name="conditions" Type="Edm.String" />
+          <Parameter Name="medications" Type="Edm.String" />
+          <Parameter Name="skip" Type="Edm.Int32" />
+          <Parameter Name="take" Type="Edm.Int32" />
+          <Parameter Name="userId" Type="Edm.Int32" />
+        </FunctionImport>
+        <FunctionImport Name="GetNewItemCounts" ReturnType="Collection(ePs.MyClinicalStudy.Repository.Models.USP_GetNewItemCountsResult)" EntitySet="USP_GetNewItemCountsResults" m:HttpMethod="GET">
+          <Parameter Name="userId" Type="Edm.Int32" />
+        </FunctionImport>
+        <FunctionImport Name="GetAlerts" ReturnType="Collection(ePs.MyClinicalStudy.Repository.Models.USP_GetAlertsResult)" EntitySet="USP_GetAlertsResults" m:HttpMethod="GET">
+          <Parameter Name="userId" Type="Edm.Int32" />
+        </FunctionImport>
+        <AssociationSet Name="UserAccessLog_User" Association="ePs.MyClinicalStudy.Repository.Models.UserAccessLog_User">
+          <End Role="UserAccessLog_User_Target" EntitySet="Users" />
+          <End Role="UserAccessLog_User_Source" EntitySet="UserAccessLogs" />
+        </AssociationSet>
+        <AssociationSet Name="UserCondition_User" Association="ePs.MyClinicalStudy.Repository.Models.UserCondition_User">
+          <End Role="UserCondition_User_Target" EntitySet="Users" />
+          <End Role="UserCondition_User_Source" EntitySet="UserConditions" />
+        </AssociationSet>
+        <AssociationSet Name="UserMedication_User" Association="ePs.MyClinicalStudy.Repository.Models.UserMedication_User">
+          <End Role="UserMedication_User_Target" EntitySet="Users" />
+          <End Role="UserMedication_User_Source" EntitySet="UserMedications" />
+        </AssociationSet>
+        <AssociationSet Name="UserSearch_User" Association="ePs.MyClinicalStudy.Repository.Models.UserSearch_User">
+          <End Role="UserSearch_User_Target" EntitySet="Users" />
+          <End Role="UserSearch_User_Source" EntitySet="UserSearches" />
+        </AssociationSet>
+        <AssociationSet Name="UserStudy_User" Association="ePs.MyClinicalStudy.Repository.Models.UserStudy_User">
+          <End Role="UserStudy_User_Target" EntitySet="Users" />
+          <End Role="UserStudy_User_Source" EntitySet="UserStudies" />
+        </AssociationSet>
+        <AssociationSet Name="UserCondition_Condition" Association="ePs.MyClinicalStudy.Repository.Models.UserCondition_Condition">
+          <End Role="UserCondition_Condition_Source" EntitySet="UserConditions" />
+          <End Role="UserCondition_Condition_Target" EntitySet="Conditions" />
+        </AssociationSet>
+        <AssociationSet Name="MedicationCondition_Condition" Association="ePs.MyClinicalStudy.Repository.Models.MedicationCondition_Condition">
+          <End Role="MedicationCondition_Condition_Target" EntitySet="Conditions" />
+          <End Role="MedicationCondition_Condition_Source" EntitySet="MedicationConditions" />
+        </AssociationSet>
+        <AssociationSet Name="StudyCondition_Condition" Association="ePs.MyClinicalStudy.Repository.Models.StudyCondition_Condition">
+          <End Role="StudyCondition_Condition_Target" EntitySet="Conditions" />
+          <End Role="StudyCondition_Condition_Source" EntitySet="StudyConditions" />
+        </AssociationSet>
+        <AssociationSet Name="MedicationCondition_Medication" Association="ePs.MyClinicalStudy.Repository.Models.MedicationCondition_Medication">
+          <End Role="MedicationCondition_Medication_Source" EntitySet="MedicationConditions" />
+          <End Role="MedicationCondition_Medication_Target" EntitySet="Medications" />
+        </AssociationSet>
+        <AssociationSet Name="UserMedication_Medication" Association="ePs.MyClinicalStudy.Repository.Models.UserMedication_Medication">
+          <End Role="UserMedication_Medication_Target" EntitySet="Medications" />
+          <End Role="UserMedication_Medication_Source" EntitySet="UserMedications" />
+        </AssociationSet>
+        <AssociationSet Name="StudyCondition_Study" Association="ePs.MyClinicalStudy.Repository.Models.StudyCondition_Study">
+          <End Role="StudyCondition_Study_Source" EntitySet="StudyConditions" />
+          <End Role="StudyCondition_Study_Target" EntitySet="Studies" />
+        </AssociationSet>
+        <AssociationSet Name="StudySite_Study" Association="ePs.MyClinicalStudy.Repository.Models.StudySite_Study">
+          <End Role="StudySite_Study_Target" EntitySet="Studies" />
+          <End Role="StudySite_Study_Source" EntitySet="StudySites" />
+        </AssociationSet>
+        <AssociationSet Name="UserStudy_Study" Association="ePs.MyClinicalStudy.Repository.Models.UserStudy_Study">
+          <End Role="UserStudy_Study_Target" EntitySet="Studies" />
+          <End Role="UserStudy_Study_Source" EntitySet="UserStudies" />
+        </AssociationSet>
+        <AssociationSet Name="StudySite_Site" Association="ePs.MyClinicalStudy.Repository.Models.StudySite_Site">
+          <End Role="StudySite_Site_Source" EntitySet="StudySites" />
+          <End Role="StudySite_Site_Target" EntitySet="Sites" />
+        </AssociationSet>
+        <AssociationSet Name="UserStudy_Site" Association="ePs.MyClinicalStudy.Repository.Models.UserStudy_Site">
+          <End Role="UserStudy_Site_Target" EntitySet="Sites" />
+          <End Role="UserStudy_Site_Source" EntitySet="UserStudies" />
+        </AssociationSet>
+        <AssociationSet Name="StateProvince_Country" Association="ePs.MyClinicalStudy.Repository.Models.StateProvince_Country">
+          <End Role="StateProvince_Country_Target" EntitySet="Countries" />
+          <End Role="StateProvince_Country_Source" EntitySet="StateProvinces" />
+        </AssociationSet>
+        <AssociationSet Name="MedInfoDrugCondition_MedInfoCondition" Association="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition_MedInfoCondition">
+          <End Role="MedInfoDrugCondition_MedInfoCondition_Target" EntitySet="MedInfoConditions" />
+          <End Role="MedInfoDrugCondition_MedInfoCondition_Source" EntitySet="MedInfoDrugConditions" />
+        </AssociationSet>
+        <AssociationSet Name="MedInfoDrugCondition_MedInfoDrug" Association="ePs.MyClinicalStudy.Repository.Models.MedInfoDrugCondition_MedInfoDrug">
+          <End Role="MedInfoDrugCondition_MedInfoDrug_Source" EntitySet="MedInfoDrugConditions" />
+          <End Role="MedInfoDrugCondition_MedInfoDrug_Target" EntitySet="MedInfoDrugs" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

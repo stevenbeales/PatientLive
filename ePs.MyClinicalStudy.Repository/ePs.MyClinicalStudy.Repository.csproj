@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C63FC059-770F-47DC-9CB6-4005312F2CDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ePs.MyClinicalStudy.Repository</RootNamespace>
+    <AssemblyName>ePs.MyClinicalStudy.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QualityAssurance|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QualityAssurance\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Production\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\DatabaseExtensions.cs" />
+    <Compile Include="Infrastructure\IStoredProcedure.cs" />
+    <Compile Include="Models\Condition.cs" />
+    <Compile Include="Models\Mapping\MedInfoDrugConditionMap.cs" />
+    <Compile Include="Models\Mapping\MedInfoDrugMap.cs" />
+    <Compile Include="Models\Mapping\MedInfoConditionMap.cs" />
+    <Compile Include="Models\Mapping\Views\vw_SavedStudyMap.cs" />
+    <Compile Include="Models\Mapping\Views\vw_SearchMedicationMap.cs" />
+    <Compile Include="Models\Mapping\Views\vw_GetAlertMap.cs" />
+    <Compile Include="Models\Mapping\SearchStudyMap.cs" />
+    <Compile Include="Models\MedInfoDrugCondition.cs" />
+    <Compile Include="Models\MedInfoDrug.cs" />
+    <Compile Include="Models\MedInfoCondition.cs" />
+    <Compile Include="Models\Mapping\ResultSets\USP_GetNewItemCountsResultMap.cs" />
+    <Compile Include="Models\Mapping\ResultSets\USP_GetAlertsResultMap.cs" />
+    <Compile Include="Models\Mapping\ResultSets\USP_SearchMedicationsResultMap.cs" />
+    <Compile Include="Models\Mapping\ResultSets\USP_SearchStudiesResultMap.cs" />
+    <Compile Include="Models\Mapping\StateProvinceMap.cs" />
+    <Compile Include="Models\Mapping\CountryMap.cs" />
+    <Compile Include="Models\StateProvince.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\StoredProcedures\Results\USP_GetNewItemCountsResult.cs" />
+    <Compile Include="Models\StoredProcedures\USP_GetNewItemCounts.cs" />
+    <Compile Include="Models\StoredProcedures\Results\USP_GetAlertsResult.cs" />
+    <Compile Include="Models\StoredProcedures\USP_GetAlerts.cs" />
+    <Compile Include="Models\StoredProcedures\Results\USP_SearchMedicationsResult.cs" />
+    <Compile Include="Models\StoredProcedures\USP_SearchMedications.cs" />
+    <Compile Include="Models\StoredProcedures\Results\USP_SearchStudiesResult.cs" />
+    <Compile Include="Models\Mapping\SiteMap.cs" />
+    <Compile Include="Models\MyClinicalStudyContext.cs" />
+    <Compile Include="Models\EducationalMaterialsFAQ.cs" />
+    <Compile Include="Models\Mapping\ConditionMap.cs" />
+    <Compile Include="Models\Mapping\EducationalMaterialsFAQMap.cs" />
+    <Compile Include="Models\Mapping\MedicationConditionMap.cs" />
+    <Compile Include="Models\Mapping\MedicationMap.cs" />
+    <Compile Include="Models\Mapping\StudyConditionMap.cs" />
+    <Compile Include="Models\Mapping\StudyMap.cs" />
+    <Compile Include="Models\Mapping\StudySiteMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Mapping\UserAccessLogMap.cs" />
+    <Compile Include="Models\Mapping\UserConditionMap.cs" />
+    <Compile Include="Models\Mapping\UserMedicationMap.cs" />
+    <Compile Include="Models\Mapping\UserSearchMap.cs" />
+    <Compile Include="Models\Mapping\UserStudyMap.cs" />
+    <Compile Include="Models\Medication.cs" />
+    <Compile Include="Models\MedicationCondition.cs" />
+    <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\Study.cs" />
+    <Compile Include="Models\StudyCondition.cs" />
+    <Compile Include="Models\StudySite.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserAccessLog.cs" />
+    <Compile Include="Models\UserCondition.cs" />
+    <Compile Include="Models\UserMedication.cs" />
+    <Compile Include="Models\UserSearch.cs" />
+    <Compile Include="Models\UserStudy.cs" />
+    <Compile Include="Models\StoredProcedures\USP_SearchStudies.cs" />
+    <Compile Include="Models\Views\vw_SavedStudy.cs" />
+    <Compile Include="Models\Views\vw_SearchMedication.cs" />
+    <Compile Include="Models\Views\vw_GetAlert.cs" />
+    <Compile Include="Models\SearchStudy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

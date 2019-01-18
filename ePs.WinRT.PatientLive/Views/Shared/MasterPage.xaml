@@ -1,0 +1,135 @@
+﻿<Page
+    x:Class="ePs.WinRT.PatientLive.Views.Shared.MasterPage"
+    IsTabStop="false"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ePs.WinRT.PatientLive.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cfo="using:CharmFlyoutLibrary"
+    mc:Ignorable="d"
+    xmlns:live="using:Microsoft.Live.Controls">
+
+    <Page.Resources>
+        <Style x:Key="BackAppBarButtonStyle" TargetType="Button" BasedOn="{StaticResource AppBarButtonStyle}">
+            <Setter Property="Content" Value="&#xE0C4;"/>
+            <Setter Property="AutomationProperties.AutomationId" Value="SuperstarButton"/>
+            <Setter Property="AutomationProperties.Name" Value="Superstar"/>
+        </Style>
+    </Page.Resources>
+    
+    <Page.TopAppBar>
+        <AppBar x:Name="globalAppBar" Padding="10,0,10,0">
+            <Grid Height="115">
+                <StackPanel x:Name="rightCommandPanel" 
+                            Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Button x:Name="HomeButton"
+                            Style="{StaticResource HomeAppBarButtonStyle}"
+                            AutomationProperties.Name="Home"  
+                            Click="HomeButton_Click"/>
+                    <Button x:Name="SearchMedsBtn" 
+                            AutomationProperties.Name = "Search Meds" 
+                            Style="{StaticResource AppBarButtonStyle}" 
+                            FontSize="15" 
+                            Click="TopBarBtn_Click"
+                            CommandParameter="SearchMeds"
+                            >
+                        <Button.Content>
+                            <Image Source="/Assets/search_blk.png"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="ProfileBtn" 
+                            AutomationProperties.Name = "My Profile" 
+                            Style="{StaticResource AppBarButtonStyle}" 
+                            FontSize="15" 
+                            Click="TopBarBtn_Click"
+                            CommandParameter="Profile">
+                        <Button.Content>
+                            <Image Source="/Assets/profile_blk.png"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="SearchStudiesBtn" 
+                            AutomationProperties.Name = "Search Studies" 
+                            Style="{StaticResource AppBarButtonStyle}" 
+                            FontSize="15" 
+                            Click="TopBarBtn_Click"
+                            CommandParameter="Studies">
+                        <Button.Content>
+                            <Image Source="/Assets/research_blk.png"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="MyStudiesBtn" 
+                            AutomationProperties.Name = "My Studies" 
+                            Style="{StaticResource AppBarButtonStyle}" 
+                            FontSize="15" 
+                            Click="TopBarBtn_Click"
+                            CommandParameter="MyStudies">
+                        <Button.Content>
+                            <Image Source="/Assets/studies_blk.png"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="EducationBtn" 
+                            AutomationProperties.Name = "Educational" 
+                            Style="{StaticResource AppBarButtonStyle}" 
+                            FontSize="15" 
+                            Click="TopBarBtn_Click"
+                            CommandParameter="Education">
+                        <Button.Content>
+                            <Image Source="/Assets/education_blk.png"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="HealthBtn" 
+                            AutomationProperties.Name = "Health Record" 
+                            Style="{StaticResource AppBarButtonStyle}" 
+                            FontSize="15" 
+                            Click="TopBarBtn_Click"
+                            CommandParameter="Health">
+                        <Button.Content>
+                            <Image Source="/Assets/healthrecord_blk.png"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="CommunitiesBtn" 
+                            AutomationProperties.Name = "Communities" 
+                            Style="{StaticResource AppBarButtonStyle}" 
+                            FontSize="15" 
+                            Click="TopBarBtn_Click"
+                            CommandParameter="Communities">
+                        <Button.Content>
+                            <Image Source="/Assets/communities_blk.png"/>
+                        </Button.Content>
+                    </Button>
+                    <Button x:Name="AlertsBtn" 
+                            AutomationProperties.Name = "Safety Alerts" 
+                            Style="{StaticResource AppBarButtonStyle}" 
+                            FontSize="15" 
+                            Click="TopBarBtn_Click"
+                            CommandParameter="Alerts">
+                        <Button.Content>
+                            <Image Source="/Assets/alerts_blk.png"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </AppBar>
+    </Page.TopAppBar>
+    
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/eps_detail_bg.jpg"/>
+        </Grid.Background>
+        <cfo:CharmFlyout 
+           x:Name="cfoSettings" 
+           HeadingBackgroundBrush="Black" Heading="Privacy Statement">
+            <StackPanel>
+                <TextBlock 
+                   FontSize="16" Name="PrivacyStatement" TextWrapping="Wrap">
+                	
+                </TextBlock>
+
+            </StackPanel>
+        </cfo:CharmFlyout>
+        <Frame x:Name="frame1"/>
+    </Grid>
+
+    
+</Page>
